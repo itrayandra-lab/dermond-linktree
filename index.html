@@ -58,16 +58,7 @@
           "Inter",
           -apple-system,
           sans-serif;
-        background: linear-gradient(
-          135deg,
-          #050b1a 0%,
-          #0a1f3d 25%,
-          #0d2847 50%,
-          #0a1f3d 75%,
-          #050b1a 100%
-        );
-        background-size: 400% 400%;
-        animation: gradientShift 15s ease infinite;
+        background: #050b1a;
         color: var(--text-primary);
         min-height: 100vh;
         position: relative;
@@ -86,7 +77,7 @@
         }
       }
 
-      /* === VIDEO BACKGROUND === */
+      /* === VIDEO BACKGROUND (di luar frame, blur kuat seperti d'Alba) === */
       .bg-video-wrapper {
         position: fixed;
         top: 0;
@@ -99,14 +90,18 @@
       }
 
       .bg-video {
-        /* Video full-screen background tanpa rotation — natural orientation */
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        top: 50%;
+        left: 50%;
+        /* Scale 1.15x supaya tepian video yg di-blur kuat tidak kelihatan */
+        width: 115%;
+        height: 115%;
+        transform: translate(-50%, -50%);
         object-fit: cover;
         pointer-events: none;
+        /* Blur tebal + sedikit redup → ini yang bikin "echo" di luar frame
+           sama persis seperti foto blur di luar frame d'Alba */
+        filter: blur(28px) brightness(0.55) saturate(110%);
       }
 
       /* Overlay tipis aja agar video tetap kelihatan vibrant di kiri-kanan container */
@@ -152,16 +147,44 @@
 
       .container {
         max-width: 480px;
-        margin: 0 auto;
-        padding: 40px 22px 60px;
+        margin: 24px auto;
+        padding: 40px 22px 40px;
         position: relative;
         z-index: 1;
-        background: rgba(8, 16, 32, 0.72);
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px);
-        border-left: 1px solid var(--border-subtle);
-        border-right: 1px solid var(--border-subtle);
-        min-height: 100vh;
+        border-radius: 28px;
+        overflow: hidden;             /* WAJIB: supaya video di dalam ke-clip mengikuti border-radius */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow:
+          0 24px 60px rgba(0, 0, 0, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      /* Video DI DALAM frame: tajam, jelas, mengisi seluruh frame */
+      .frame-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      /* Overlay gelap tipis di dalam frame supaya teks linktree tetap kebaca jelas */
+      .frame-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          rgba(5, 11, 26, 0.55) 0%,
+          rgba(5, 11, 26, 0.7) 100%
+        );
+        z-index: -1;
+        pointer-events: none;
       }
 
       /* === HEADER / LOGO === */
@@ -494,10 +517,9 @@
       /* === RESPONSIVE === */
       @media (max-width: 480px) {
         .container {
-          padding: 32px 18px 48px;
-          /* Di mobile, container full width tanpa border samping */
-          border-left: none;
-          border-right: none;
+          padding: 32px 18px 36px;
+          margin: 14px 12px;
+          border-radius: 24px;
         }
 
         .logo-wrapper {
@@ -565,6 +587,22 @@
     </div>
 
     <div class="container">
+      <!-- VIDEO DI DALAM FRAME (tajam, jelas — sama dengan video luar tapi tanpa blur) -->
+      <video
+        class="frame-video"
+        id="frameVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        disablepictureinpicture
+        disableremoteplayback
+      >
+        <source src="public/dermond/dermond-video.mp4" type="video/mp4" />
+      </video>
+      <div class="frame-overlay"></div>
+
       <!-- HEADER: LOGO + HANDLE + TAGLINE -->
       <header class="header">
         <div class="logo-wrapper">
@@ -724,44 +762,42 @@
     </div>
 
     <script>
-      // Force autoplay video background untuk reliability di semua browser
+      // Force autoplay untuk KEDUA video: background luar + video dalam frame
       (function () {
-        const video = document.getElementById("bgVideo");
-        if (!video) return;
+        const videos = [
+          document.getElementById("bgVideo"),
+          document.getElementById("frameVideo"),
+        ].filter(Boolean);
 
-        // Pastikan muted (wajib untuk autoplay di semua browser modern)
-        video.muted = true;
-        video.defaultMuted = true;
-        video.playsInline = true;
+        if (videos.length === 0) return;
 
-        const tryPlay = () => {
-          const playPromise = video.play();
-          if (playPromise !== undefined) {
-            playPromise.catch(() => {
-              // Autoplay diblokir → akan retry saat user pertama kali interaksi
-            });
-          }
-        };
+        videos.forEach((video) => {
+          video.muted = true;
+          video.defaultMuted = true;
+          video.playsInline = true;
 
-        // Coba play saat berbagai event
-        video.addEventListener("loadeddata", tryPlay);
-        video.addEventListener("canplay", tryPlay);
+          const tryPlay = () => {
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(() => {
+                // Autoplay diblokir → akan retry saat user interaksi
+              });
+            }
+          };
 
-        // Fallback terakhir: play saat user pertama kali interaksi
-        const playOnInteraction = () => {
-          tryPlay();
-          document.removeEventListener("click", playOnInteraction);
-          document.removeEventListener("touchstart", playOnInteraction);
-        };
-        document.addEventListener("click", playOnInteraction, {
-          passive: true,
-        });
-        document.addEventListener("touchstart", playOnInteraction, {
-          passive: true,
+          video.addEventListener("loadeddata", tryPlay);
+          video.addEventListener("canplay", tryPlay);
+          if (video.readyState >= 2) tryPlay();
         });
 
-        // Trigger initial load
-        if (video.readyState >= 2) tryPlay();
+        // Fallback terakhir: play semua video saat user interaksi pertama
+        const playAllOnInteraction = () => {
+          videos.forEach((v) => v.play().catch(() => {}));
+          document.removeEventListener("click", playAllOnInteraction);
+          document.removeEventListener("touchstart", playAllOnInteraction);
+        };
+        document.addEventListener("click", playAllOnInteraction, { passive: true });
+        document.addEventListener("touchstart", playAllOnInteraction, { passive: true });
       })();
     </script>
   </body>
