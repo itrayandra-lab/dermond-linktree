@@ -25,17 +25,60 @@
       href="public/dermond/favicon.png"
     />
     <title>DERMOND — Men's Daily Partner</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <style>
+      /* Custom Fonts */
+      @font-face {
+        font-family: "Barlow Condensed";
+        src: url("public/font/Barlow_Condensed-20260510T122018Z-3-001/Barlow_Condensed/BarlowCondensed-Bold.ttf")
+          format("truetype");
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Barlow Condensed";
+        src: url("public/font/Barlow_Condensed-20260510T122018Z-3-001/Barlow_Condensed/BarlowCondensed-SemiBold.ttf")
+          format("truetype");
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Montserrat";
+        src: url("public/font/Montserrat-20260510T122039Z-3-001/Montserrat/Montserrat-Regular.ttf")
+          format("truetype");
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Montserrat";
+        src: url("public/font/Montserrat-20260510T122039Z-3-001/Montserrat/Montserrat-Medium.ttf")
+          format("truetype");
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Montserrat";
+        src: url("public/font/Montserrat-20260510T122039Z-3-001/Montserrat/Montserrat-SemiBold.ttf")
+          format("truetype");
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Montserrat";
+        src: url("public/font/Montserrat-20260510T122039Z-3-001/Montserrat/Montserrat-Bold.ttf")
+          format("truetype");
+        font-weight: 700;
+        font-style: normal;
+      }
+
       :root {
         --bg-primary: #050b1a;
         --bg-card: rgba(15, 25, 45, 0.55);
@@ -61,7 +104,7 @@
 
       body {
         font-family:
-          "Inter",
+          "Montserrat",
           -apple-system,
           sans-serif;
         background: #050b1a;
@@ -241,10 +284,10 @@
       }
 
       .brand-handle {
-        font-family: "Syne", "Space Grotesk", sans-serif;
-        font-size: 26px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 28px;
         font-weight: 700;
-        letter-spacing: -0.5px;
+        letter-spacing: 0.5px;
         color: var(--text-primary);
         margin-bottom: 6px;
         background: linear-gradient(135deg, #ffffff 0%, #a8c8f0 100%);
@@ -254,11 +297,11 @@
       }
 
       .brand-tagline {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 13px;
-        font-weight: 500;
+        font-family: "Montserrat", sans-serif;
+        font-size: 11px;
+        font-weight: 600;
         color: var(--text-secondary);
-        letter-spacing: 2px;
+        letter-spacing: 3px;
         text-transform: uppercase;
         margin-bottom: 24px;
       }
@@ -300,10 +343,10 @@
       /* === SECTION TITLE === */
       .section-title {
         text-align: center;
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: 2.5px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 3px;
         text-transform: uppercase;
         color: var(--text-secondary);
         margin: 28px 0 16px;
@@ -449,7 +492,7 @@
         flex: 1;
         font-size: 15px;
         font-weight: 600;
-        letter-spacing: 0.2px;
+        letter-spacing: 0.3px;
       }
 
       .link-arrow {
@@ -471,8 +514,8 @@
       }
 
       .footer-brand {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 13px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 12px;
         font-weight: 700;
         letter-spacing: 4px;
         color: var(--text-secondary);
