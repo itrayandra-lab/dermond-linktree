@@ -3,11 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="DERMOND - Men's Daily Partner. Professional grade intimate care engineered for performance." />
-    <meta name="keywords" content="DERMOND, Men's Daily Partner, intimate care, men grooming, body wash" />
+    <meta
+      name="description"
+      content="DERMOND - Men's Daily Partner. Professional grade intimate care engineered for performance."
+    />
+    <meta
+      name="keywords"
+      content="DERMOND, Men's Daily Partner, intimate care, men grooming, body wash"
+    />
     <meta name="theme-color" content="#050b1a" />
     <meta property="og:title" content="DERMOND - Men's Daily Partner" />
-    <meta property="og:description" content="Professional grade intimate care engineered for performance" />
+    <meta
+      property="og:description"
+      content="Professional grade intimate care engineered for performance"
+    />
     <meta property="og:type" content="website" />
     <title>DERMOND — Men's Daily Partner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,9 +54,18 @@
       }
 
       body {
-        font-family: "Inter", -apple-system, sans-serif;
-        background:
-          linear-gradient(135deg, #050b1a 0%, #0a1f3d 25%, #0d2847 50%, #0a1f3d 75%, #050b1a 100%);
+        font-family:
+          "Inter",
+          -apple-system,
+          sans-serif;
+        background: linear-gradient(
+          135deg,
+          #050b1a 0%,
+          #0a1f3d 25%,
+          #0d2847 50%,
+          #0a1f3d 75%,
+          #050b1a 100%
+        );
         background-size: 400% 400%;
         animation: gradientShift 15s ease infinite;
         color: var(--text-primary);
@@ -59,8 +77,13 @@
       }
 
       @keyframes gradientShift {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
       }
 
       /* === VIDEO BACKGROUND === */
@@ -94,13 +117,12 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background:
-          linear-gradient(
-            180deg,
-            rgba(5, 11, 26, 0.3) 0%,
-            rgba(5, 11, 26, 0.15) 50%,
-            rgba(5, 11, 26, 0.5) 100%
-          );
+        background: linear-gradient(
+          180deg,
+          rgba(5, 11, 26, 0.3) 0%,
+          rgba(5, 11, 26, 0.15) 50%,
+          rgba(5, 11, 26, 0.5) 100%
+        );
         pointer-events: none;
         z-index: -1;
       }
@@ -114,8 +136,16 @@
         width: 100%;
         height: 100%;
         background:
-          radial-gradient(ellipse 80% 50% at 50% 0%, rgba(61, 155, 255, 0.18) 0%, transparent 60%),
-          radial-gradient(ellipse 60% 40% at 50% 100%, rgba(0, 212, 255, 0.1) 0%, transparent 60%);
+          radial-gradient(
+            ellipse 80% 50% at 50% 0%,
+            rgba(61, 155, 255, 0.18) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 60% 40% at 50% 100%,
+            rgba(0, 212, 255, 0.1) 0%,
+            transparent 60%
+          );
         pointer-events: none;
         z-index: -1;
       }
@@ -163,7 +193,11 @@
         content: "";
         position: absolute;
         inset: -16px;
-        background: radial-gradient(circle, rgba(61, 155, 255, 0.3) 0%, transparent 70%);
+        background: radial-gradient(
+          circle,
+          rgba(61, 155, 255, 0.3) 0%,
+          transparent 70%
+        );
         border-radius: 50%;
         z-index: -1;
         animation: pulse 3s ease-in-out infinite;
@@ -435,7 +469,8 @@
       }
 
       @keyframes pulse {
-        0%, 100% {
+        0%,
+        100% {
           opacity: 0.5;
           transform: scale(1);
         }
@@ -446,9 +481,15 @@
       }
 
       /* Stagger animation for link cards */
-      .link-card:nth-child(1) { animation-delay: 0.3s; }
-      .link-card:nth-child(2) { animation-delay: 0.4s; }
-      .link-card:nth-child(3) { animation-delay: 0.5s; }
+      .link-card:nth-child(1) {
+        animation-delay: 0.3s;
+      }
+      .link-card:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+      .link-card:nth-child(3) {
+        animation-delay: 0.5s;
+      }
 
       /* === RESPONSIVE === */
       @media (max-width: 480px) {
@@ -620,6 +661,36 @@
         </a>
       </div>
 
+      <!-- OFFLINE STORE SECTION -->
+      <h2 class="section-title">Offline Store</h2>
+      <div class="links">
+        <a
+          href="https://maps.app.goo.gl/GkJ74mUYzTUCmBUR7"
+          class="link-card"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-icon icon-store">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div class="link-text">Beautylatory - Padalarang</div>
+          <i class="fa-solid fa-arrow-right link-arrow"></i>
+        </a>
+
+        <a
+          href="https://maps.app.goo.gl/rchXVfQScYawkFcV6"
+          class="link-card"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-icon icon-store">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div class="link-text">Apotek Parahyangan Suite - Sukajadi</div>
+          <i class="fa-solid fa-arrow-right link-arrow"></i>
+        </a>
+      </div>
+
       <!-- CONTACT US SECTION -->
       <h2 class="section-title">Contact Us</h2>
       <div class="links">
@@ -636,10 +707,7 @@
           <i class="fa-solid fa-arrow-right link-arrow"></i>
         </a>
 
-        <a
-          href="mailto:officialdermond@gmail.com"
-          class="link-card"
-        >
+        <a href="mailto:officialdermond@gmail.com" class="link-card">
           <div class="link-icon icon-email">
             <i class="fa-solid fa-envelope"></i>
           </div>
@@ -685,8 +753,12 @@
           document.removeEventListener("click", playOnInteraction);
           document.removeEventListener("touchstart", playOnInteraction);
         };
-        document.addEventListener("click", playOnInteraction, { passive: true });
-        document.addEventListener("touchstart", playOnInteraction, { passive: true });
+        document.addEventListener("click", playOnInteraction, {
+          passive: true,
+        });
+        document.addEventListener("touchstart", playOnInteraction, {
+          passive: true,
+        });
 
         // Trigger initial load
         if (video.readyState >= 2) tryPlay();
