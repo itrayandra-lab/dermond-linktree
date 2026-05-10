@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="DERMOND - Men's Salt Partner. Professional grade intimate care engineered for performance." />
+    <meta name="keywords" content="DERMOND, Men's Salt Partner, intimate care, men grooming, body wash" />
+    <meta name="theme-color" content="#050b1a" />
+    <meta property="og:title" content="DERMOND - Men's Salt Partner" />
+    <meta property="og:description" content="Professional grade intimate care engineered for performance" />
+    <meta property="og:type" content="website" />
+    <title>DERMOND — Men's Salt Partner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bg-primary: #050b1a;
+        --bg-card: rgba(15, 25, 45, 0.55);
+        --bg-card-hover: rgba(20, 35, 60, 0.7);
+        --accent-blue: #3d9bff;
+        --accent-cyan: #00d4ff;
+        --text-primary: #ffffff;
+        --text-secondary: #c4d3e8;
+        --text-muted: #8a9bb5;
+        --border-subtle: rgba(255, 255, 255, 0.12);
+        --border-hover: rgba(61, 155, 255, 0.5);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, sans-serif;
+        background:
+          linear-gradient(135deg, #050b1a 0%, #0a1f3d 25%, #0d2847 50%, #0a1f3d 75%, #050b1a 100%);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        color: var(--text-primary);
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+
+      /* === VIDEO BACKGROUND === */
+      .bg-video-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -2;
+        overflow: hidden;
+        background: #050b1a;
+      }
+
+      .bg-video {
+        /* Video full-screen background tanpa rotation — natural orientation */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+      }
+
+      /* Overlay tipis aja agar video tetap kelihatan vibrant di kiri-kanan container */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(5, 11, 26, 0.3) 0%,
+            rgba(5, 11, 26, 0.15) 50%,
+            rgba(5, 11, 26, 0.5) 100%
+          );
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      /* Subtle radial accent biru untuk DERMOND vibe */
+      body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+          radial-gradient(ellipse 80% 50% at 50% 0%, rgba(61, 155, 255, 0.18) 0%, transparent 60%),
+          radial-gradient(ellipse 60% 40% at 50% 100%, rgba(0, 212, 255, 0.1) 0%, transparent 60%);
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .container {
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 40px 22px 60px;
+        position: relative;
+        z-index: 1;
+        background: rgba(8, 16, 32, 0.72);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border-left: 1px solid var(--border-subtle);
+        border-right: 1px solid var(--border-subtle);
+        min-height: 100vh;
+      }
+
+      /* === HEADER / LOGO === */
+      .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        animation: fadeInUp 0.7s ease-out;
+      }
+
+      .logo-wrapper {
+        margin-bottom: 18px;
+        position: relative;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #1e3a6f 0%, #0a1f3d 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow:
+          0 0 0 1px rgba(61, 155, 255, 0.3),
+          0 8px 32px rgba(61, 155, 255, 0.35),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+
+      .logo-wrapper::before {
+        content: "";
+        position: absolute;
+        inset: -16px;
+        background: radial-gradient(circle, rgba(61, 155, 255, 0.3) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: -1;
+        animation: pulse 3s ease-in-out infinite;
+      }
+
+      .logo {
+        width: 75%;
+        height: 75%;
+        object-fit: contain;
+        display: block;
+        filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+      }
+
+      .brand-handle {
+        font-family: "Syne", "Space Grotesk", sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        color: var(--text-primary);
+        margin-bottom: 6px;
+        background: linear-gradient(135deg, #ffffff 0%, #a8c8f0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .brand-tagline {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-secondary);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+      }
+
+      /* === SOCIAL ICONS ROW === */
+      .social-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 36px;
+        animation: fadeInUp 0.8s ease-out 0.1s backwards;
+      }
+
+      .social-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(15, 25, 45, 0.6);
+        border: 1px solid var(--border-subtle);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-primary);
+        font-size: 17px;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      .social-icon:hover {
+        background: var(--accent-blue);
+        border-color: var(--accent-blue);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(61, 155, 255, 0.35);
+      }
+
+      /* === SECTION TITLE === */
+      .section-title {
+        text-align: center;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        margin: 28px 0 16px;
+        position: relative;
+        animation: fadeInUp 0.6s ease-out backwards;
+      }
+
+      .section-title::before,
+      .section-title::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--border-subtle));
+      }
+
+      .section-title::before {
+        right: calc(50% + 80px);
+        background: linear-gradient(90deg, transparent, var(--border-subtle));
+      }
+
+      .section-title::after {
+        left: calc(50% + 80px);
+        background: linear-gradient(90deg, var(--border-subtle), transparent);
+      }
+
+      /* === LINK CARDS === */
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .link-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 18px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: 14px;
+        text-decoration: none;
+        color: var(--text-primary);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        animation: fadeInUp 0.6s ease-out backwards;
+      }
+
+      .link-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(61, 155, 255, 0.08),
+          transparent
+        );
+        transition: left 0.6s ease;
+      }
+
+      .link-card:hover {
+        background: var(--bg-card-hover);
+        border-color: var(--border-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(61, 155, 255, 0.15);
+      }
+
+      .link-card:hover::before {
+        left: 100%;
+      }
+
+      .link-icon {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 17px;
+        background: rgba(255, 255, 255, 0.06);
+        transition: all 0.3s ease;
+      }
+
+      .link-card:hover .link-icon {
+        transform: scale(1.05);
+      }
+
+      /* Brand-specific icon colors */
+      .icon-tiktok {
+        background: linear-gradient(135deg, #000 0%, #25f4ee 50%, #fe2c55 100%);
+        color: #fff;
+      }
+      .icon-instagram {
+        background: linear-gradient(
+          135deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
+        );
+        color: #fff;
+      }
+      .icon-website {
+        background: linear-gradient(135deg, #3d9bff, #00d4ff);
+        color: #fff;
+      }
+      .icon-youtube {
+        background: #ff0000;
+        color: #fff;
+      }
+      .icon-tiktokshop {
+        background: linear-gradient(135deg, #ff4040, #fe2c55);
+        color: #fff;
+      }
+      .icon-shopee {
+        background: linear-gradient(135deg, #ff5722, #ee4d2d);
+        color: #fff;
+      }
+      .icon-store {
+        background: linear-gradient(135deg, #3d9bff, #1e5fcc);
+        color: #fff;
+      }
+      .icon-whatsapp {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        color: #fff;
+      }
+      .icon-email {
+        background: linear-gradient(135deg, #ea4335, #c5221f);
+        color: #fff;
+      }
+
+      .link-text {
+        flex: 1;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+      }
+
+      .link-arrow {
+        color: var(--text-muted);
+        font-size: 13px;
+        transition: all 0.3s ease;
+      }
+
+      .link-card:hover .link-arrow {
+        color: var(--accent-blue);
+        transform: translateX(3px);
+      }
+
+      /* === FOOTER === */
+      .footer {
+        margin-top: 40px;
+        text-align: center;
+        animation: fadeInUp 0.6s ease-out 0.6s backwards;
+      }
+
+      .footer-brand {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 4px;
+        color: var(--text-secondary);
+        margin-bottom: 4px;
+      }
+
+      .footer-text {
+        font-size: 11px;
+        color: var(--text-muted);
+        letter-spacing: 0.5px;
+      }
+
+      /* === ANIMATIONS === */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+          opacity: 0.5;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.8;
+          transform: scale(1.05);
+        }
+      }
+
+      /* Stagger animation for link cards */
+      .link-card:nth-child(1) { animation-delay: 0.3s; }
+      .link-card:nth-child(2) { animation-delay: 0.4s; }
+      .link-card:nth-child(3) { animation-delay: 0.5s; }
+
+      /* === RESPONSIVE === */
+      @media (max-width: 480px) {
+        .container {
+          padding: 32px 18px 48px;
+          /* Di mobile, container full width tanpa border samping */
+          border-left: none;
+          border-right: none;
+        }
+
+        .logo-wrapper {
+          width: 100px;
+          height: 100px;
+        }
+
+        .brand-handle {
+          font-size: 24px;
+        }
+
+        .brand-tagline {
+          font-size: 12px;
+        }
+
+        .social-icon {
+          width: 42px;
+          height: 42px;
+          font-size: 16px;
+        }
+
+        .link-card {
+          padding: 13px 16px;
+        }
+
+        .link-icon {
+          width: 36px;
+          height: 36px;
+          min-width: 36px;
+          font-size: 15px;
+        }
+
+        .link-text {
+          font-size: 14px;
+        }
+
+        .section-title::before {
+          right: calc(50% + 72px);
+          width: 30px;
+        }
+
+        .section-title::after {
+          left: calc(50% + 72px);
+          width: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- VIDEO BACKGROUND -->
+    <div class="bg-video-wrapper">
+      <video
+        class="bg-video"
+        id="bgVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        disablepictureinpicture
+        disableremoteplayback
+      >
+        <source src="public/dermond/dermond-video.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <div class="container">
+      <!-- HEADER: LOGO + HANDLE + TAGLINE -->
+      <header class="header">
+        <div class="logo-wrapper">
+          <img
+            src="public/dermond/dermond.png"
+            alt="DERMOND Logo"
+            class="logo"
+          />
+        </div>
+        <div class="brand-handle">Dermond Official</div>
+        <div class="brand-tagline">Men's Salt Partner</div>
+
+        <!-- SOCIAL ICONS ROW (TikTok, Instagram, Website, YouTube) -->
+        <div class="social-row">
+          <a
+            href="https://www.tiktok.com/@dermond_official?_r=1&_t=ZS-96D7hi8l457"
+            class="social-icon"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="TikTok"
+          >
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/dermond_official?igsh=eXB1cWtqNDlzNTdu"
+            class="social-icon"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a
+            href="https://dermond.id/"
+            class="social-icon"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Website"
+          >
+            <i class="fa-solid fa-globe"></i>
+          </a>
+          <a
+            href="https://www.youtube.com/@DermondOfficial"
+            class="social-icon"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+          >
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </header>
+
+      <!-- OFFICIAL SHOP SECTION -->
+      <h2 class="section-title">Official Shop</h2>
+      <div class="links">
+        <a
+          href="https://vt.tiktok.com/ZS9FP3bCX5xmJ-Gopqt/"
+          class="link-card"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-icon icon-tiktokshop">
+            <i class="fa-brands fa-tiktok"></i>
+          </div>
+          <div class="link-text">TikTok Shop</div>
+          <i class="fa-solid fa-arrow-right link-arrow"></i>
+        </a>
+
+        <a
+          href="https://id.shp.ee/ZXLiiUVe"
+          class="link-card"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-icon icon-shopee">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </div>
+          <div class="link-text">Shopee Official Store</div>
+          <i class="fa-solid fa-arrow-right link-arrow"></i>
+        </a>
+
+        <a
+          href="https://dermond.id/products"
+          class="link-card"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-icon icon-store">
+            <i class="fa-solid fa-store"></i>
+          </div>
+          <div class="link-text">Web Official Store</div>
+          <i class="fa-solid fa-arrow-right link-arrow"></i>
+        </a>
+      </div>
+
+      <!-- CONTACT US SECTION -->
+      <h2 class="section-title">Contact Us</h2>
+      <div class="links">
+        <a
+          href="https://api.whatsapp.com/send?phone=6281936105039&text=Halo%20Kak%20DERMOND%2C%20saya%20tertarik%20dengan%20produknya%20nih%20%F0%9F%91%8B"
+          class="link-card"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-icon icon-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <div class="link-text">WhatsApp</div>
+          <i class="fa-solid fa-arrow-right link-arrow"></i>
+        </a>
+
+        <a
+          href="mailto:officialdermond@gmail.com"
+          class="link-card"
+        >
+          <div class="link-icon icon-email">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div class="link-text">Email</div>
+          <i class="fa-solid fa-arrow-right link-arrow"></i>
+        </a>
+      </div>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="footer-brand">DERMOND</div>
+        <div class="footer-text">© 2026 · Men's Salt Partner</div>
+      </footer>
+    </div>
+
+    <script>
+      // Force autoplay video background untuk reliability di semua browser
+      (function () {
+        const video = document.getElementById("bgVideo");
+        if (!video) return;
+
+        // Pastikan muted (wajib untuk autoplay di semua browser modern)
+        video.muted = true;
+        video.defaultMuted = true;
+        video.playsInline = true;
+
+        const tryPlay = () => {
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {
+              // Autoplay diblokir → akan retry saat user pertama kali interaksi
+            });
+          }
+        };
+
+        // Coba play saat berbagai event
+        video.addEventListener("loadeddata", tryPlay);
+        video.addEventListener("canplay", tryPlay);
+
+        // Fallback terakhir: play saat user pertama kali interaksi
+        const playOnInteraction = () => {
+          tryPlay();
+          document.removeEventListener("click", playOnInteraction);
+          document.removeEventListener("touchstart", playOnInteraction);
+        };
+        document.addEventListener("click", playOnInteraction, { passive: true });
+        document.addEventListener("touchstart", playOnInteraction, { passive: true });
+
+        // Trigger initial load
+        if (video.readyState >= 2) tryPlay();
+      })();
+    </script>
+  </body>
+</html>
