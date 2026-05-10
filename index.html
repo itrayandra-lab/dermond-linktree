@@ -152,7 +152,7 @@
         position: relative;
         z-index: 1;
         border-radius: 28px;
-        overflow: hidden;             /* WAJIB: supaya video di dalam ke-clip mengikuti border-radius */
+        overflow: hidden; /* WAJIB: supaya video di dalam ke-clip mengikuti border-radius */
         border: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow:
           0 24px 60px rgba(0, 0, 0, 0.5),
@@ -724,7 +724,9 @@
           <div class="link-icon icon-store">
             <i class="fa-solid fa-location-dot"></i>
           </div>
-          <div class="link-text">Gedung Soho PVJ - Sukajadi</div>
+          <div class="link-text">
+            Apotek Parahyangan Suites - Gedung Soho PVJ Sukajadi
+          </div>
           <i class="fa-solid fa-arrow-right link-arrow"></i>
         </a>
       </div>
@@ -796,8 +798,12 @@
           document.removeEventListener("click", playAllOnInteraction);
           document.removeEventListener("touchstart", playAllOnInteraction);
         };
-        document.addEventListener("click", playAllOnInteraction, { passive: true });
-        document.addEventListener("touchstart", playAllOnInteraction, { passive: true });
+        document.addEventListener("click", playAllOnInteraction, {
+          passive: true,
+        });
+        document.addEventListener("touchstart", playAllOnInteraction, {
+          passive: true,
+        });
       })();
     </script>
   </body>
