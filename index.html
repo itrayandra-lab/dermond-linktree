@@ -126,31 +126,9 @@
         }
       }
 
-      /* === VIDEO BACKGROUND (di luar frame, blur kuat seperti d'Alba) === */
+      /* === BACKGROUND (solid dark, no video) === */
       .bg-video-wrapper {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: -2;
-        overflow: hidden;
-        background: #050b1a;
-      }
-
-      .bg-video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        /* Scale 1.15x supaya tepian video yg di-blur kuat tidak kelihatan */
-        width: 115%;
-        height: 115%;
-        transform: translate(-50%, -50%);
-        object-fit: cover;
-        pointer-events: none;
-        /* Blur tebal + sedikit redup → ini yang bikin "echo" di luar frame
-           sama persis seperti foto blur di luar frame d'Alba */
-        filter: blur(28px) brightness(0.55) saturate(110%);
+        display: none;
       }
 
       /* Overlay tipis aja agar video tetap kelihatan vibrant di kiri-kanan container */
@@ -716,23 +694,6 @@
     </style>
   </head>
   <body>
-    <!-- VIDEO BACKGROUND -->
-    <div class="bg-video-wrapper">
-      <video
-        class="bg-video"
-        id="bgVideo"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-        disablepictureinpicture
-        disableremoteplayback
-      >
-        <source src="public/dermond/dermond-video.mp4" type="video/mp4" />
-      </video>
-    </div>
-
     <div class="container">
       <!-- VIDEO DI DALAM FRAME (tajam, jelas — sama dengan video luar tapi tanpa blur) -->
       <video
@@ -936,12 +897,9 @@
     </div>
 
     <script>
-      // Force autoplay untuk KEDUA video: background luar + video dalam frame
+      // Force autoplay untuk video dalam frame
       (function () {
-        const videos = [
-          document.getElementById("bgVideo"),
-          document.getElementById("frameVideo"),
-        ].filter(Boolean);
+        const videos = [document.getElementById("frameVideo")].filter(Boolean);
 
         if (videos.length === 0) return;
 
