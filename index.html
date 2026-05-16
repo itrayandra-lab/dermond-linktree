@@ -18,11 +18,11 @@
       content="Professional grade intimate care engineered for performance"
     />
     <meta property="og:type" content="website" />
-    <link rel="icon" type="image/png" href="public/dermond/favicon.png" />
+    <link rel="icon" type="image/png" href="public/dermond/dermond.png" />
     <link
       rel="shortcut icon"
       type="image/png"
-      href="public/dermond/favicon.png"
+      href="public/dermond/dermond.png"
     />
     <title>DERMOND — Men's Daily Partner</title>
     <link
@@ -379,14 +379,14 @@
       .links {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
       }
 
       .link-card {
         display: flex;
         align-items: center;
-        gap: 14px;
-        padding: 14px 18px;
+        gap: 13px;
+        padding: 13px 16px;
         background: var(--bg-card);
         border: 1px solid var(--border-subtle);
         border-radius: 14px;
@@ -431,17 +431,17 @@
         width: 38px;
         height: 38px;
         min-width: 38px;
-        border-radius: 10px;
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 17px;
+        font-size: 16px;
         background: rgba(255, 255, 255, 0.06);
         transition: all 0.3s ease;
       }
 
       .link-card:hover .link-icon {
-        transform: scale(1.05);
+        transform: scale(1.06);
       }
 
       /* Brand-specific icon colors */
@@ -480,6 +480,19 @@
         background: linear-gradient(135deg, #3d9bff, #1e5fcc);
         color: #fff;
       }
+      .icon-dermond {
+        background: linear-gradient(135deg, #1e3a6f 0%, #0a1f3d 100%);
+        overflow: hidden;
+        padding: 4px;
+      }
+
+      .icon-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
       .icon-whatsapp {
         background: linear-gradient(135deg, #25d366, #128c7e);
         color: #fff;
@@ -488,18 +501,43 @@
         background: linear-gradient(135deg, #ea4335, #c5221f);
         color: #fff;
       }
+      .icon-location {
+        background: linear-gradient(135deg, #3d9bff, #1e5fcc);
+        color: #fff;
+      }
+
+      /* Link content: title + subtitle */
+      .link-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+      }
 
       .link-text {
-        flex: 1;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 600;
         letter-spacing: 0.3px;
+        color: var(--text-primary);
+      }
+
+      .link-sub {
+        font-size: 11px;
+        font-weight: 400;
+        color: var(--text-muted);
+        letter-spacing: 0.2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .link-arrow {
         color: var(--text-muted);
-        font-size: 13px;
+        font-size: 12px;
         transition: all 0.3s ease;
+        flex-shrink: 0;
+        margin-left: auto;
       }
 
       .link-card:hover .link-arrow {
@@ -564,12 +602,67 @@
         animation-delay: 0.5s;
       }
 
+      /* === FEATURED CARD (Web Official Store) === */
+      .link-card.featured {
+        border: 1.5px solid rgba(61, 155, 255, 0.65);
+        background: rgba(20, 50, 90, 0.65);
+        box-shadow:
+          0 0 18px rgba(61, 155, 255, 0.2),
+          0 4px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .link-card.featured::after {
+        content: none;
+      }
+
+      .link-card.featured .link-text {
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .link-card.featured .link-arrow {
+        color: var(--accent-cyan);
+      }
+
+      .link-card.featured:hover {
+        border-color: rgba(61, 155, 255, 0.9);
+        background: rgba(20, 55, 100, 0.75);
+        box-shadow:
+          0 0 28px rgba(61, 155, 255, 0.4),
+          0 8px 32px rgba(0, 0, 0, 0.25);
+        transform: translateY(-3px);
+      }
+
+      /* Glow pulse on featured card */
+      @keyframes featuredGlow {
+        0%,
+        100% {
+          box-shadow:
+            0 0 18px rgba(61, 155, 255, 0.2),
+            0 4px 24px rgba(0, 0, 0, 0.2);
+        }
+        50% {
+          box-shadow:
+            0 0 28px rgba(61, 155, 255, 0.45),
+            0 8px 32px rgba(0, 0, 0, 0.25);
+        }
+      }
+
+      .link-card.featured {
+        animation:
+          fadeInUp 0.6s ease-out backwards,
+          featuredGlow 2.5s ease-in-out 1s infinite;
+      }
+
       /* === RESPONSIVE === */
       @media (max-width: 480px) {
         .container {
-          padding: 32px 18px 36px;
-          margin: 14px 12px;
-          border-radius: 24px;
+          padding: 28px 16px 36px;
+          margin: 0;
+          border-radius: 0;
+          border: none;
+          min-height: 100vh;
+          box-shadow: none;
         }
 
         .logo-wrapper {
@@ -578,11 +671,11 @@
         }
 
         .brand-handle {
-          font-size: 24px;
+          font-size: 26px;
         }
 
         .brand-tagline {
-          font-size: 12px;
+          font-size: 11px;
         }
 
         .social-icon {
@@ -592,7 +685,7 @@
         }
 
         .link-card {
-          padding: 13px 16px;
+          padding: 12px 14px;
         }
 
         .link-icon {
@@ -604,6 +697,10 @@
 
         .link-text {
           font-size: 14px;
+        }
+
+        .link-sub {
+          font-size: 10px;
         }
 
         .section-title::before {
@@ -711,14 +808,23 @@
       <div class="links">
         <a
           href="https://dermond.id/products"
-          class="link-card"
+          class="link-card featured"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <div class="link-icon icon-store">
-            <i class="fa-solid fa-store"></i>
+          <div class="link-icon icon-dermond">
+            <img
+              src="public/dermond/dermond.png"
+              alt="Dermond"
+              class="icon-img"
+            />
           </div>
-          <div class="link-text">Web Official Store</div>
+          <div class="link-content">
+            <div class="link-text">Belanja di Web Kami</div>
+            <div class="link-sub">
+              Harga terbaik · Produk lengkap · Langsung dari kami
+            </div>
+          </div>
           <i class="fa-solid fa-arrow-right link-arrow"></i>
         </a>
 
@@ -731,7 +837,10 @@
           <div class="link-icon icon-tiktokshop">
             <i class="fa-brands fa-tiktok"></i>
           </div>
-          <div class="link-text">TikTok Shop</div>
+          <div class="link-content">
+            <div class="link-text">TikTok Shop</div>
+            <div class="link-sub">@dermond_official</div>
+          </div>
           <i class="fa-solid fa-arrow-right link-arrow"></i>
         </a>
 
@@ -744,7 +853,10 @@
           <div class="link-icon icon-shopee">
             <i class="fa-solid fa-bag-shopping"></i>
           </div>
-          <div class="link-text">Shopee Official Store</div>
+          <div class="link-content">
+            <div class="link-text">Shopee Official Store</div>
+            <div class="link-sub">@dermondofficial</div>
+          </div>
           <i class="fa-solid fa-arrow-right link-arrow"></i>
         </a>
       </div>
@@ -758,10 +870,13 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <div class="link-icon icon-store">
+          <div class="link-icon icon-location">
             <i class="fa-solid fa-location-dot"></i>
           </div>
-          <div class="link-text">Beautylatory - Kota Baru Parahyangan</div>
+          <div class="link-content">
+            <div class="link-text">Beautylatory - Kota Baru Parahyangan</div>
+            <div class="link-sub">Kota Baru Parahyangan, Bandung</div>
+          </div>
           <i class="fa-solid fa-arrow-right link-arrow"></i>
         </a>
 
@@ -771,11 +886,12 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <div class="link-icon icon-store">
+          <div class="link-icon icon-location">
             <i class="fa-solid fa-location-dot"></i>
           </div>
-          <div class="link-text">
-            Apotek Parahyangan Suites - Gedung Soho PVJ Sukajadi
+          <div class="link-content">
+            <div class="link-text">Apotek Parahyangan Suites</div>
+            <div class="link-sub">Gedung Soho PVJ Sukajadi, Bandung</div>
           </div>
           <i class="fa-solid fa-arrow-right link-arrow"></i>
         </a>
@@ -793,7 +909,10 @@
           <div class="link-icon icon-whatsapp">
             <i class="fa-brands fa-whatsapp"></i>
           </div>
-          <div class="link-text">WhatsApp</div>
+          <div class="link-content">
+            <div class="link-text">WhatsApp</div>
+            <div class="link-sub">+62 819-3610-5039</div>
+          </div>
           <i class="fa-solid fa-arrow-right link-arrow"></i>
         </a>
 
@@ -801,7 +920,10 @@
           <div class="link-icon icon-email">
             <i class="fa-solid fa-envelope"></i>
           </div>
-          <div class="link-text">Email</div>
+          <div class="link-content">
+            <div class="link-text">Email</div>
+            <div class="link-sub">officialdermond@gmail.com</div>
+          </div>
           <i class="fa-solid fa-arrow-right link-arrow"></i>
         </a>
       </div>
